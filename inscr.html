@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Taekwondo Lion - Djibouti - Inscription 2025/2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .form-section {
+            page-break-inside: avoid;
+        }
+
+        .checkbox-container input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: #e53e3e;
+        }
+
+        .signature-box {
+            border-top: 1px dashed #000;
+            width: 200px;
+            text-align: center;
+            padding-top: 10px;
+        }
+
+        @media print {
+            .no-print {
+                display: none;
+            }
+
+            body {
+                font-size: 12px;
+            }
+
+            .page-break {
+                page-break-after: always;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+
+        .tkd-gradient {
+            background: linear-gradient(135deg, #000000 0%, #003366 50%, #CC0000 100%);
+        }
+
+        .tkd-text-gradient {
+            background: linear-gradient(135deg, #CC0000, #003366);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hamburger span {
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Correction de la navigation -->
+    <header class="fixed w-full z-50 tkd-gradient shadow-lg">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="images/LOGO.jpg" alt="Logo Taekwondo Djibouti" class="h-12 mr-3">
+                    <h1 class="text-white text-xl font-bold">TAEKWONDO <span class="tkd-text-gradient">DJIBOUTI</span></h1>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-white hover:text-red-400 transition">Accueil</a>
+                    <a href="#club" class="text-white hover:text-red-400 transition">Le Club</a>
+                    <a href="#cours" class="text-white hover:text-red-400 transition">Cours</a>
+                    <a href="actualise.html" class="text-gray-400 hover:text-white transition">Actualités</a>
+                    <a href="galerie.html" class="text-gray-400 hover:text-white transition">Galerie</a>
+                    <a href="contact.html" class="text-white hover:text-red-400 transition">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="hamburger focus:outline-none">
+                        <span class="block w-6 h-0.5 bg-white mb-1.5"></span>
+                        <span class="block w-6 h-0.5 bg-white mb-1.5"></span>
+                        <span class="block w-6 h-0.5 bg-white"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+</br></br> </br>
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8 max-w-5xl" id="form-to-print">
+        <!-- Header -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-6">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <img src="images/LOGO.jpg" alt="Club Logo" class="w-20 h-20 mr-4">
+                    <div>
+                        <h1 class="text-2xl md:text-3xl font-bold text-red-600">CLUB TAEKWONDO LION – DJIBOUTI</h1>
+                        <p class="text-gray-600">Fiche d'Inscription & Règlement Intérieur – Saison 2025/2026</p>
+                    </div>
+                </div>
+                <div class="bg-red-600 text-white px-4 py-2 rounded-md">
+                    <p class="font-bold">SAISON 2025/2026</p>
+                </div>
+            </div>
+            
+            <div class="border-t-2 border-b-2 border-red-600 py-2 my-4">
+                <h2 class="text-xl font-bold text-center">INFORMATIONS PERSONNELLES</h2>
+            </div>
+        </div>
+        
+        <!-- Form Sections -->
+        <form class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <!-- Personal Information -->
+            <div class="form-section mb-8">
+                <div class="flex items-center mb-4">
+                    <span class="mr-4 font-semibold">Civilité:</span>
+                    <div class="checkbox-container flex items-center mr-6">
+                        <input type="checkbox" id="madame" class="mr-2">
+                        <label for="madame">Madame</label>
+                    </div>
+                    <div class="checkbox-container flex items-center">
+                        <input type="checkbox" id="monsieur" class="mr-2">
+                        <label for="monsieur">Monsieur</label>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label for="nom" class="block font-medium mb-1">Nom :</label>
+                        <input type="text" id="nom" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                    </div>
+                    <div>
+                        <label for="prenom" class="block font-medium mb-1">Prénom :</label>
+                        <input type="text" id="prenom" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                    </div>
+                    <div>
+                        <label for="date_naissance" class="block font-medium mb-1">Date de naissance :</label>
+                        <input type="date" id="date_naissance" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                    </div>
+                    <div>
+                        <label for="nationalite" class="block font-medium mb-1">Nationalité :</label>
+                        <input type="text" id="nationalite" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                    </div>
+                    <div>
+                        <label for="adresse" class="block font-medium mb-1">Adresse :</label>
+                        <input type="text" id="adresse" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                    </div>
+                    <div>
+                        <label for="telephone" class="block font-medium mb-1">Téléphone :</label>
+                        <input type="tel" id="telephone" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                    </div>
+                    <div>
+                        <label for="email" class="block font-medium mb-1">E-mail :</label>
+                        <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="font-bold mb-2">Représentant légal (pour mineurs, +18 ans) :</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                        <label for="representant_nom" class="block font-medium mb-1">Nom/Prénom :</label>
+                        <input type="text" id="representant_nom" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tarifs & Catégorie -->
+            <div class="form-section mb-8">
+                <div class="border-t-2 border-b-2 border-red-600 py-2 my-4">
+                    <h2 class="text-xl font-bold text-center">Tarifs & Catégorie</h2>
+                </div>
+                
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white border border-gray-300">
+                        <thead class="bg-red-600 text-white">
+                            <tr>
+                                <th class="py-2 px-4 border">Catégorie</th>
+                                <th class="py-2 px-4 border">Par mensuel</th>
+                                <th class="py-2 px-4 border">6 mois (FDJ)</th>
+                                <th class="py-2 px-4 border">12 mois (FDJ)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="py-2 px-4 border">Enfants (4 - 12 ans)</td>
+                                <td class="py-2 px-4 border">
+                                    <div class="checkbox-container flex items-center justify-center">
+                                        <input type="checkbox" id="enfant_mensuel" class="mr-2">
+                                        <label for="enfant_mensuel">4 000</label>
+                                    </div>
+                                </td>
+                                <td class="py-2 px-4 border">
+                                    <div class="checkbox-container flex items-center justify-center">
+                                        <input type="checkbox" id="enfant_6mois" class="mr-2">
+                                        <label for="enfant_6mois">22 000</label>
+                                    </div>
+                                </td>
+                                <td class="py-2 px-4 border">
+                                    <div class="checkbox-container flex items-center justify-center">
+                                        <input type="checkbox" id="enfant_12mois" class="mr-2">
+                                        <label for="enfant_12mois">40 000</label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border">Jeunes (13 - 18 ans)</td>
+                                <td class="py-2 px-4 border">
+                                    <div class="checkbox-container flex items-center justify-center">
+                                        <input type="checkbox" id="jeune_mensuel" class="mr-2">
+                                        <label for="jeune_mensuel">4 000</label>
+                                    </div>
+                                </td>
+                                <td class="py-2 px-4 border">
+                                    <div class="checkbox-container flex items-center justify-center">
+                                        <input type="checkbox" id="jeune_6mois" class="mr-2">
+                                        <label for="jeune_6mois">22 000</label>
+                                    </div>
+                                </td>
+                                <td class="py-2 px-4 border">
+                                    <div class="checkbox-container flex items-center justify-center">
+                                        <input type="checkbox" id="jeune_12mois" class="mr-2">
+                                        <label for="jeune_12mois">45 000</label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border">Ados/Adultes (+18)</td>
+                                <td class="py-2 px-4 border">
+                                    <div class="checkbox-container flex items-center justify-center">
+                                        <input type="checkbox" id="adulte_mensuel" class="mr-2">
+                                        <label for="adulte_mensuel">4 000</label>
+                                    </div>
+                                </td>
+                                <td class="py-2 px-4 border">
+                                    <div class="checkbox-container flex items-center justify-center">
+                                        <input type="checkbox" id="adulte_6mois" class="mr-2">
+                                        <label for="adulte_6mois">23 000</label>
+                                    </div>
+                                </td>
+                                <td class="py-2 px-4 border">
+                                    <div class="checkbox-container flex items-center justify-center">
+                                        <input type="checkbox" id="adulte_12mois" class="mr-2">
+                                        <label for="adulte_12mois">45 000</label>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="mt-6">
+                    <h3 class="font-bold mb-2">Frais d'inscription 2025/2026 :</h3>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Anciens adhérents : 3 000 FDJ</li>
+                        <li>Nouveaux adhérents : 5 000 FDJ</li>
+                        <li>Dobok "Tenue Taekwondo" : 5 000 FDJ</li>
+                    </ul>
+                </div>
+                
+                <div class="mt-6">
+                    <h3 class="font-bold mb-2">Mode de Paiements :</h3>
+                    <p class="mb-2">Chèque, Cash, Virement, App ...etc.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-gray-100 p-3 rounded-md">
+                            <p class="font-semibold">Waafi:</p>
+                            <p>77 88 71 97 (Mohamed Youssouf Ali)</p>
+                        </div>
+                        <div class="bg-gray-100 p-3 rounded-md">
+                            <p class="font-semibold">D-Money:</p>
+                            <p>77 88 71 97 (Mohamed Youssouf Ali)</p>
+                        </div>
+                        <div class="bg-gray-100 p-3 rounded-md">
+                            <p class="font-semibold">CAC Pay:</p>
+                            <p>77 75 66 38 (Moustapha Mohamed Yacoub)</p>
+                        </div>
+                        <div class="bg-gray-100 p-3 rounded-md">
+                            <p class="font-semibold">Saba Pay:</p>
+                            <p>77 75 66 38 (Moustapha Mohamed Yacoub)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Horaires -->
+            <div class="form-section mb-8">
+                <div class="border-t-2 border-b-2 border-red-600 py-2 my-4">
+                    <h2 class="text-xl font-bold text-center">Horaires d'ouverture du Club</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-gray-100 p-4 rounded-md">
+                        <h3 class="font-bold mb-2 text-red-600">Pour les Enfants & Jeunes : 4 – 14 ans</h3>
+                        <ul class="list-disc pl-6 space-y-1">
+                            <li>Jeudi : 18h00 au 20h00</li>
+                            <li>Vendredi : 16h40 au 18h30</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-100 p-4 rounded-md">
+                        <h3 class="font-bold mb-2 text-red-600">Pour les Jeunes & Adultes : 15 ans et PLUS</h3>
+                        <ul class="list-disc pl-6 space-y-1">
+                            <li>Jeudi : 20h00 au 22h00</li>
+                            <li>Vendredi : 15h00 au 16h40</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="mt-4 bg-yellow-100 p-3 rounded-md">
+                    <p class="font-semibold">ADRESSE: Stade El Hadji Hassan Gouled Abtidon</p>
+                    <p class="italic">NB : "Merci de venir 10 min avant le début du cours pour vous préparer."</p>
+                </div>
+            </div>
+            
+            <!-- Documents -->
+            <div class="form-section mb-8">
+                <div class="border-t-2 border-b-2 border-red-600 py-2 my-4">
+                    <h2 class="text-xl font-bold text-center">Pièce à joindre à votre dossier d'inscription</h2>
+                </div>
+                
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Pièce d'identité (Copie)</li>
+                    <li>2 Photos d'identité récente (édition papier acceptée)</li>
+                    <li>Justificative d'adresse (EDD\ONEAD)</li>
+                    <li>Certificat médical datant de moins de 1 ans indiquant qu'il n'y a pas de contre-indication médicale a la pratique du Taekwondo OU photocopie de la page du passeport complétée par votre médecin pour la nouvelle saison sportive (obligatoire si vous avez un passeport taekwondo)</li>
+                </ul>
+                
+                <div class="mt-4 bg-red-100 p-3 rounded-md">
+                    <p class="font-semibold">Attention :</p>
+                    <p>Pour la compétition, le certificat médical doit indiquer en plus "absence de contre-indication à la pratique de la compétition de taekwondo" (Aucune inscription à la préparation a la compétition ne sera possible sans cette inscription sur le certificat médical).</p>
+                    <p class="mt-2 font-semibold">C'est obligatoire d'avoir Licence</p>
+                </div>
+            </div>
+            
+            <!-- Coaches -->
+            <div class="form-section mb-8">
+                <div class="border-t-2 border-b-2 border-red-600 py-2 my-4">
+                    <h2 class="text-xl font-bold text-center">COORDONNÉES DES ENTRÂINEURS</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-gray-100 p-3 rounded-md">
+                        <p class="font-semibold">Maître Ali :</p>
+                        <p>77 75 66 38</p>
+                    </div>
+                    <div class="bg-gray-100 p-3 rounded-md">
+                        <p class="font-semibold">Assistant :</p>
+                        <p>77 52 89 28</p>
+                    </div>
+                    <div class="bg-gray-100 p-3 rounded-md">
+                        <p class="font-semibold">Trésorier :</p>
+                        <p>77 88 71 97</p>
+                    </div>
+                </div>
+                
+                <div class="mt-4">
+                    <p class="font-semibold">Email :</p>
+                    <p>aliteak7749@gmail.com</p>
+                </div>
+            </div>
+            
+            <!-- Santé & Urgences -->
+            <div class="form-section mb-8">
+                <div class="border-t-2 border-b-2 border-red-600 py-2 my-4">
+                    <h2 class="text-xl font-bold text-center">SANTÉ & URGENCES</h2>
+                </div>
+                
+                <div class="mb-4">
+                    <label for="probleme_sante" class="block font-medium mb-1">Problème de santé à signaler (si aucun, écrire "Néant") :</label>
+                    <textarea id="probleme_sante" rows="2" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"></textarea>
+                </div>
+                
+                <h3 class="font-bold mb-2">Personne à prévenir en cas d'accident :</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+                    <div>
+                        <label for="urgence_nom" class="block font-medium mb-1">Nom :</label>
+                        <input type="text" id="urgence_nom" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                    </div>
+                    <div>
+                        <label for="urgence_prenom" class="block font-medium mb-1">Prénom :</label>
+                        <input type="text" id="urgence_prenom" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                    </div>
+                    <div>
+                        <label for="urgence_telephone" class="block font-medium mb-1">Téléphone fixe :</label>
+                        <input type="tel" id="urgence_telephone" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                    </div>
+                    <div>
+                        <label for="urgence_mobile" class="block font-medium mb-1">Mobile :</label>
+                        <input type="tel" id="urgence_mobile" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Autorisations -->
+            <div class="form-section mb-8">
+                <div class="border-t-2 border-b-2 border-red-600 py-2 my-4">
+                    <h2 class="text-xl font-bold text-center">AUTORISATIONS</h2>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="font-bold mb-2">Autorisation parentale (pour mineurs) :</h3>
+                    <p class="mb-4">Je soussigné(e), <span class="underline">_________________________</span>, demeurant à <span class="underline">_________________________</span>,</p>
+                    <p class="mb-4">En tant que ☐ Père ☐ Mère ☐ Tuteur, autorise mon enfant <span class="underline">_________________________</span> à pratiquer le taekwondo au sein du Club Taekwondo Lion Djibouti.</p>
+                </div>
+                
+                <div class="mb-6">
+                    <div class="checkbox-container flex items-start">
+                        <input type="checkbox" id="droit_image" class="mt-1 mr-2">
+                        <label for="droit_image">Droit à l'image : J'autorise la diffusion de photos/vidéos liées à la pratique (supports officiels du club/fédération).</label>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <div class="checkbox-container flex items-start">
+                        <input type="checkbox" id="engagement" class="mt-1 mr-2">
+                        <label for="engagement">Engagement : Je m'engage à respecter le règlement intérieur et le code d'honneur.</label>
+                    </div>
+                </div>
+                
+                <div class="flex flex-wrap justify-between items-center mt-8">
+                    <div class="signature-box mb-4 md:mb-0">
+                        <p>Date :</p>
+                        <p class="mt-4">_________________________</p>
+                    </div>
+                    <div class="signature-box mb-4 md:mb-0">
+                        <p>Signature Maitre :</p>
+                        <p class="mt-4">_________________________</p>
+                    </div>
+                    <div class="signature-box mb-4 md:mb-0">
+                        <p>Signature du Client :</p>
+                        <p class="mt-4">_________________________</p>
+                    </div>
+                    <div class="signature-box">
+                        <p>Signature Trésorier :</p>
+                        <p class="mt-4">_________________________</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Règlement Intérieur -->
+            <div class="form-section page-break">
+                <div class="border-t-2 border-b-2 border-red-600 py-2 my-4">
+                    <h2 class="text-xl font-bold text-center">RÈGLEMENT INTÉRIEUR</h2>
+                </div>
+                
+                <div class="prose max-w-none">
+                    <h3 class="font-bold">Article 1</h3>
+                    <p>Le professeur dispense la pratique et est le seul responsable du déroulement des cours.</p>
+                    
+                    <h3 class="font-bold mt-4">Article 2</h3>
+                    <p>Les élèves doivent respecter les consignes de l'entraîneur à l'intérieur du Dojo aussi bien pendant la pratique que pendant les phases d'intercours.</p>
+                    
+                    <h3 class="font-bold mt-4">Article 3</h3>
+                    <p>Après une blessure entraînant un arrêt de la pratique, l'élève doit fournir un certificat médical justifiant de son aptitude à reprendre le taekwondo. L'entraîneur décide ensuite si l'élève peut ou non pratiquer.</p>
+                    
+                    <h3 class="font-bold mt-4">Article 4</h3>
+                    <p>La pratique d'un art martial implique le respect des règles élémentaires de politesse, de courtoisie et de respect d'autrui. De plus, les élèves sont tenus d'adopter a attitude permettant le bon déroulement des cours, le respect des équipements et des locaux mis à disposition par la mairie. Le non-respect de cet article peut engendrer une interdiction à l'accès au dojo en fonction de la gravité.</p>
+                    
+                    <h3 class="font-bold mt-4">Article 5</h3>
+                    <p>Les élèves doivent se changer dans les vestiaires et doivent avoir dans leur sac le strict nécessaire pour l'entraînement.</p>
+                    
+                    <h3 class="font-bold mt-4">Article 6</h3>
+                    <p>La tenue sportive du Taekwondo est le dobok. Il est toléré le port du jogging et t-shirt pour les débutants dans l'attente de l'achat d'un Dobok.</p>
+                    
+                    <h3 class="font-bold mt-4">Article 7</h3>
+                    <p>Pour la sécurité des pratiquants, le port des bijoux (bagues, colliers, piercing etc…) est interdit. Les élèves seront responsables de leurs affaires personnelles. Tous les effets personnels de valeurs doivent rester à la maison. Les téléphones portables et éventuellement les bijoux devront être posés sur le bureau situé dans la salle de dojo. Nous recommandons vivement de marquer, au feutre marqueur, les protections et d'étiqueter au nom de l'élève les tenues souvent oubliées dans les vestiaires. Le club ne sera pas tenu pour responsable si les effets personnels venaient à disparaître.</p>
+                    
+                    <h3 class="font-bold mt-4">Article 8</h3>
+                    <p>Seuls les compétiteurs à jour de leur cotisation seront convoqués aux compétitions et devront confirmer leurs présences (par le représentant légal pour les mineurs). Les compétiteurs auront en charge les frais afférents aux compétitions. Le club pourra engager le compétiteur après confirmation à la participation et règlement des frais d'engagement. Après l'envoi des engagements par le club, tout compétiteur, qui se désisterait, sera redevable des frais occasionnés même si le désistement est involontaire.</p>
+                    
+                    <h3 class="font-bold mt-4">Article 9</h3>
+                    <p>L'élève à jour de cotisation peut être invité à un examen Passage de Grade au cours de la saison. Des frais de participation seront demandés ainsi que l'autorisation parentale pour les mineurs. L'examen Passage de Grade sera fermé au public.</p>
+                    
+                    <h3 class="font-bold mt-4">Article 10</h3>
+                    <p>Les cours non assurés :</p>
+                    <ul class="list-disc pl-6 mt-2">
+                        <li>En cas de compétition ou examen Passage de Grade le week-end, les cours du samedi sont susceptibles d'être annulés.</li>
+                        <li>En cas de retard important ou une indisponibilité des entraîneurs dans le cadre de leur vie professionnelle/personnelle, un texto sera envoyé pour prévenir les parents et enfants, en possession d'un téléphone portable, de l'éventuelle annulation du ou des cours.</li>
+                        <li>Les cours pourront être reportés, annulés ou réalisés par vidéo dans le cadre de la crise sanitaire.</li>
+                    </ul>
+                    
+                    <h3 class="font-bold mt-4">Article 11</h3>
+                    <p>Les sanctions suivantes sont encourues pour tout manquement au règlement Fédéral et au règlement intérieur :</p>
+                    <ul class="list-disc pl-6 mt-2">
+                        <li>L'exclusion d'un cours,</li>
+                        <li>La suspension d'un cours ou de plusieurs,</li>
+                        <li>L'exclusion définitive.</li>
+                        <li>Sans contre-remboursement de la cotisation annuelle</li>
+                    </ul>
+                    
+                    <h3 class="font-bold mt-4">Article 12</h3>
+                    <p>La décision d'exclusion d'un ou plusieurs cours est prise par l'entraîneur. La décision de l'exclusion définitive se fera après concertation avec le bureau directeur.</p>
+                    
+                    <h3 class="font-bold mt-4">Article 13</h3>
+                    <p>En cas de dossier d'inscription incomplet après la date limite de dépôt, l'entraîneur sera en droit de refuser l'élève sur le tatami. Si le parent est présent, l'élève pourra repartir sinon il assistera toute la durée du cours sur le banc à l'intérieur du dojo.</p>
+                    
+                    <h3 class="font-bold mt-4">Article 14</h3>
+                    <p>L'entraîneur principal est, le seul, habilité à inviter des élèves à participer aux « cours compétiteurs confirmés ». Ces cours sont réservés aux pratiquants motivés et réguliers. Tous les élèves qui viennent à ces cours doivent s'équiper de protections. Les casques et les plastrons peuvent être prêtés par le club.</p>
+                    
+                    <h3 class="font-bold mt-4">Article 15</h3>
+                    <p>Il est impératif que les équipements, matériels et protections, soient rangés avec soins dans leur emplacement respectif après utilisation. Un responsable de rangement sera désigné à chaque entraînement.</p>
+                    
+                    <h3 class="font-bold mt-4">Article 16</h3>
+                    <p>Toutes informations se feront par e-mail et/ou par texto. Chaque membre est invité à consulter ses messageries électroniques régulièrement et s'engage à informer le bureau de tout changement d'adresse e-mail and/ou n° portable.</p>
+                    
+                    <h3 class="font-bold mt-4">Article 17</h3>
+                    <p>L'accès au dojo n'est permis qu'aux élèves inscrits sur la plage horaire en cours. Les autres élèves, parents, frères-sœurs ne peuvent pas rester au sein du dojo et ne seront pas sous la responsabilité du club. Les parents sont autorisés à rester dans le dojo uniquement pour les 3-5 ans. Les parents déposant leurs enfants doivent s'assurer de la présence du professeur au dojo avant de repartir.</p>
+                    
+                    <h3 class="font-bold mt-4">Article 18</h3>
+                    <p>En cas de désinscription en cours d'année, le club ne procèdera à aucun remboursement des cotisations annuelles.</p>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+    <!-- Form Actions -->
+    <div class="no-print flex justify-center gap-4 mt-6 mb-8">
+        <button onclick="window.print()" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded-md flex items-center">
+            <i class="fas fa-print mr-2"></i> Imprimer
+        </button>
+        <button id="download-pdf" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-md flex items-center">
+            <i class="fas fa-file-pdf mr-2"></i> Télécharger PDF
+        </button>
+        <button id="submit-form" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-md flex items-center">
+            <i class="fas fa-paper-plane mr-2"></i> Soumettre
+        </button>
+    </div>
+    
+    <script>
+        // Simple form validation
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Check required fields
+            const requiredFields = ['nom', 'prenom', 'date_naissance', 'adresse', 'telephone'];
+            let isValid = true;
+            
+            requiredFields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                if (!field.value.trim()) {
+                    field.classList.add('border-red-500');
+                    isValid = false;
+                } else {
+                    field.classList.remove('border-red-500');
+                }
+            });
+            
+            // Check at least one payment option is selected
+            const paymentSelected = document.querySelector('input[type="checkbox"]:checked');
+            if (!paymentSelected) {
+                alert('Veuillez sélectionner au moins une option de paiement.');
+                isValid = false;
+            }
+            
+            // Check authorization checkboxes
+            if (!document.getElementById('droit_image').checked || !document.getElementById('engagement').checked) {
+                alert('Veuillez accepter toutes les autorisations.');
+                isValid = false;
+            }
+            
+            if (isValid) {
+                alert('Formulaire soumis avec succès!');
+                // In a real application, you would submit the form data to a server here
+            }
+        });
+        
+        // Reset red borders when user starts typing
+        document.querySelectorAll('input, textarea').forEach(input => {
+            input.addEventListener('input', function() {
+                if (this.classList.contains('border-red-500')) {
+                    this.classList.remove('border-red-500');
+                }
+            });
+        });
+        
+        // PDF Download functionality
+        document.getElementById('download-pdf').addEventListener('click', function() {
+            const element = document.getElementById('form-to-print');
+            const opt = {
+                margin: 10,
+                filename: 'Inscription_Taekwondo_Lion_Djibouti.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            
+            // Show loading indicator
+            const button = this;
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Création PDF...';
+            button.disabled = true;
+            
+            // Generate PDF
+            html2pdf().from(element).set(opt).save().then(() => {
+                // Restore button
+                button.innerHTML = originalText;
+                button.disabled = false;
+            });
+        });
+        
+        // Submit button event listener
+        document.getElementById('submit-form').addEventListener('click', function() {
+            document.querySelector('form').dispatchEvent(new Event('submit'));
+        });
+    </script>
+</body>
+</html>

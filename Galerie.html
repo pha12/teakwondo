@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Taekwondo Djibouti | Art martial coréen</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS for animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+        
+        /* Custom gradient for Taekwondo */
+        .tkd-gradient {
+            background: linear-gradient(135deg, #000000 0%, #003366 50%, #CC0000 100%);
+        }
+        
+        .tkd-text-gradient {
+            background: linear-gradient(135deg, #CC0000, #003366);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        /* Hamburger menu animation */
+        .hamburger span {
+            transition: all 0.3s ease;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* News card hover effect */
+        .news-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+  <!-- Header/Navigation -->
+    <header class="fixed w-full z-50 tkd-gradient shadow-lg">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="images/LOGO.jpg" alt="Logo Taekwondo Djibouti" class="h-12 mr-3">
+                    <h1 class="text-white text-xl font-bold">TAEKWONDO <span class="tkd-text-gradient">DJIBOUTI</span></h1>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-white hover:text-red-400 transition">Accueil</a>
+                    <a href="#club" class="text-white hover:text-red-400 transition">Le Club</a>
+                    <a href="#cours" class="text-white hover:text-red-400 transition">Cours</a>
+                    <a href="actualise.html" class="text-gray-400 hover:text-white transition">Actualités</a>
+                    <a href="Galerie.html" class="text-gray-400 hover:text-white transition">Galerie</a>>
+                    <a href="contact.html" class="text-white hover:text-red-400 transition">Contact</a>
+                </div>
+                
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="hamburger focus:outline-none">
+                        <span class="block w-6 h-0.5 bg-white mb-1.5"></span>
+                        <span class="block w-6 h-0.5 bg-white mb-1.5"></span>
+                        <span class="block w-6 h-0.5 bg-white"></span>
+                    </button>
+                </div>
+            </div>
+            
+            
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <a href="index.html" class="block text-white py-2 hover:bg-gray-800 px-4 rounded">Accueil</a>
+                <a href="club.html" class="block text-white py-2 hover:bg-gray-800 px-4 rounded">Le Club</a>
+                <a href="cours.html" class="block text-white py-2 hover:bg-gray-800 px-4 rounded">Cours</a>
+                <a href="actualites.html" class="block text-white py-2 hover:bg-gray-800 px-4 rounded">Actualités</a>
+                <a href="galerie.html" class="block text-white py-2 hover:bg-gray-800 px-4 rounded">Galerie</a>
+                <a href="contact.html" class="block text-white py-2 hover:bg-gray-800 px-4 rounded">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gray-900 text-white">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="container mx-auto px-4 py-24 relative z-10">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Galerie du Club</h2>
+                <p class="text-xl mb-8">Découvrez nos moments forts, compétitions et entraînements en images</p>
+                <div class="flex justify-center space-x-4">
+                    <a href="#" class="bg-red-600 hover:bg-red-700 px-6 py-3 rounded-lg font-medium">Rejoignez-nous</a>
+                    <a href="#" class="bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 px-6 py-3 rounded-lg font-medium">Nos événements</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="container mx-auto px-4 py-16">
+        <!-- Filter Buttons -->
+        <div class="flex flex-wrap justify-center gap-4 mb-12">
+            <button class="filter-btn active px-6 py-2 rounded-full bg-red-600 text-white" data-filter="all">Tout voir</button>
+            <button class="filter-btn px-6 py-2 rounded-full bg-gray-200 hover:bg-gray-300" data-filter="competitions">Compétitions</button>
+            <button class="filter-btn px-6 py-2 rounded-full bg-gray-200 hover:bg-gray-300" data-filter="entrainements">Entraînements</button>
+            <button class="filter-btn px-6 py-2 rounded-full bg-gray-200 hover:bg-gray-300" data-filter="ceintures">Passages de ceintures</button>
+            <button class="filter-btn px-6 py-2 rounded-full bg-gray-200 hover:bg-gray-300" data-filter="evenements">Événements</button>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Item 1 -->
+            <div class="gallery-item overflow-hidden rounded-lg shadow-md bg-white competition" data-index="0">
+                <img src="images/ABDIFATAH BOYKA.jpg" 
+                     alt="Compétition de Taekwondo" class="w-full h-64 object-cover cursor-pointer">
+                <div class="p-4">
+                    <h3 class="font-bold text-lg mb-2">Championnat National 2018</h3>
+                    <p class="text-gray-600">Nos athlètes lors du championnat national à Djibouti</p>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="gallery-item overflow-hidden rounded-lg shadow-md bg-white entrainement" data-index="1">
+                <img src="images/enfantes entrainer.jpg" 
+                     alt="Entraînement de Taekwondo" class="w-full h-64 object-cover cursor-pointer">
+                <div class="p-4">
+                    <h3 class="font-bold text-lg mb-2">Séance d'entraînement</h3>
+                    <p class="text-gray-600">Nos jeunes talents pendant une séance intensive</p>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="gallery-item overflow-hidden rounded-lg shadow-md bg-white ceinture" data-index="2">
+                <img src="images/icon-coach.jpg" 
+                     alt="Passage de ceinture" class="w-full h-64 object-cover cursor-pointer">
+                <div class="p-4">
+                    <h3 class="font-bold text-lg mb-2">Passage de ceinture noir 1 dan et 2,3 dan </h3>
+                    <p class="text-gray-600">Cérémonie de remise des ceintures noires 2023</p>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="gallery-item overflow-hidden rounded-lg shadow-md bg-white evenement" data-index="3">
+                <img src="images/adultes entrainer.jpg" 
+                     alt="Démonstration de Taekwondo" class="w-full h-64 object-cover cursor-pointer">
+                <div class="p-4">
+                    <h3 class="font-bold text-lg mb-2">Démonstration publique</h3>
+                    <p class="text-gray-600">Présentation des techniques lors de la journée du sport</p>
+                </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="gallery-item overflow-hidden rounded-lg shadow-md bg-white competition" data-index="4">
+                <img src="images/PREMIER PLACE.jpg" 
+                     alt="Compétition internationale" class="w-full h-64 object-cover cursor-pointer">
+                <div class="p-4">
+                    <h3 class="font-bold text-lg mb-2">Tournoi régional</h3>
+                    <p class="text-gray-600">Participation au tournoi de la Corne de l'Afrique</p>
+                </div>
+            </div>
+
+            <!-- Item 6 -->
+            <div class="gallery-item overflow-hidden rounded-lg shadow-md bg-white entrainement" data-index="5">
+                <img src="images/enfantes entrainer.jpg" 
+                     alt="Entraînement enfants" class="w-full h-64 object-cover cursor-pointer">
+                <div class="p-4">
+                    <h3 class="font-bold text-lg mb-2">Section enfants</h3>
+                    <p class="text-gray-600">Nos jeunes pousses apprennent les bases du Taekwondo</p>
+                </div>
+            </div>
+
+            <!-- Item 7 -->
+            <div class="gallery-item overflow-hidden rounded-lg shadow-md bg-white ceinture" data-index="6">
+                <img src="images/1746219547251.jpg" 
+                     alt="Remise de ceintures" class="w-full h-64 object-cover cursor-pointer">
+                <div class="p-4">
+                    <h3 class="font-bold text-lg mb-2">Cérémonie des grades</h3>
+                    <p class="text-gray-600">Remise des ceintures de couleur aux élèves</p>
+                </div>
+            </div>
+
+            <!-- Item 8 -->
+            <div class="gallery-item overflow-hidden rounded-lg shadow-md bg-white evenement" data-index="7">
+                <img src="images/MAITRES.jpg" 
+                     alt="Stage de perfectionnement" class="w-full h-64 object-cover cursor-pointer">
+                <div class="p-4">
+                    <h3 class="font-bold text-lg mb-2">Stage international</h3>
+                    <p class="text-gray-600">Master Kim en visite pour un stage technique</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Load More Button -->
+        <div class="text-center mt-12">
+            <button class="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-lg font-medium">
+                Voir plus de photos <i class="fas fa-arrow-down ml-2"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <div class="lightbox-content">
+            <img src="" alt="" class="lightbox-img" id="lightbox-img">
+            <div class="text-white text-center mt-4" id="lightbox-caption"></div>
+        </div>
+        <div class="lightbox-nav">
+            <button id="prev-btn"><i class="fas fa-chevron-left"></i></button>
+            <button id="next-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">TAEKWONDO DJIBOUTI</h3>
+                    <p class="text-gray-400">Promouvant l'excellence martiale et les valeurs humaines depuis 2024.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Liens rapides</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#accueil" class="text-gray-400 hover:text-white transition">Accueil</a></li>
+                        <li><a href="#club" class="text-gray-400 hover:text-white transition">Le Club</a></li>
+                        <li><a href="#cours" class="text-gray-400 hover:text-white transition">Cours</a></li>
+                        <li><a href="#evenements" class="text-gray-400 hover:text-white transition">Événements</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                        <li><a href="inscr.html" class="text-gray-400 hover:text-white transition">Inscrire</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Cours</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Enfants</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Adolescents</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Adultes</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Ceintures Noires</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Cours Privés</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Newsletter</h4>
+                    <p class="text-gray-400 mb-4">Abonnez-vous pour recevoir nos actualités et offres spéciales.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Votre email" class="px-4 py-2 rounded-l-lg focus:outline-none text-gray-800 w-full">
+                        <button type="submit" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-r-lg transition">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2023 Club Taekwondo Djibouti. Tous droits réservés.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition">Mentions légales</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">Politique de confidentialité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-red-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition opacity-0 invisible hover:bg-red-700">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                if(this.getAttribute('href') === '#') return;
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if(!mobileMenu.classList.contains('hidden')) {
+                        menuToggle.classList.remove('active');
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if(window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if(elementTop < windowHeight - 100) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', fadeInOnScroll);
+        window.addEventListener('load', fadeInOnScroll);
+    </script>
+</html>

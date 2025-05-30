@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Taekwondo Djibouti | Art martial coréen</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS for animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+        
+        /* Custom gradient for Taekwondo */
+        .tkd-gradient {
+            background: linear-gradient(135deg, #000000 0%, #003366 50%, #CC0000 100%);
+        }
+        
+        .tkd-text-gradient {
+            background: linear-gradient(135deg, #CC0000, #003366);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        /* Hamburger menu animation */
+        .hamburger span {
+            transition: all 0.3s ease;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* News card hover effect */
+        .news-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+  <!-- Header/Navigation -->
+    <header class="fixed w-full z-50 tkd-gradient shadow-lg">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="images/LOGO.jpg" alt="Logo Taekwondo Djibouti" class="h-12 mr-3">
+                    <h1 class="text-white text-xl font-bold">TAEKWONDO <span class="tkd-text-gradient">DJIBOUTI</span></h1>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-white hover:text-red-400 transition">Accueil</a>
+                    <a href="#club" class="text-white hover:text-red-400 transition">Le Club</a>
+                    <a href="#cours" class="text-white hover:text-red-400 transition">Cours</a>
+                    <a href="actualise.html" class="text-gray-400 hover:text-white transition">Actualités</a>
+                    <a href="Galerie.html" class="text-gray-400 hover:text-white transition">Galerie</a>>
+                    <a href="contact.html" class="text-white hover:text-red-400 transition">Contact</a>
+                </div>
+                
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="hamburger focus:outline-none">
+                        <span class="block w-6 h-0.5 bg-white mb-1.5"></span>
+                        <span class="block w-6 h-0.5 bg-white mb-1.5"></span>
+                        <span class="block w-6 h-0.5 bg-white"></span>
+                    </button>
+                </div>
+            </div>
+            
+            
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <a href="index.html" class="block text-white py-2 hover:bg-gray-800 px-4 rounded">Accueil</a>
+                <a href="club.html" class="block text-white py-2 hover:bg-gray-800 px-4 rounded">Le Club</a>
+                <a href="cours.html" class="block text-white py-2 hover:bg-gray-800 px-4 rounded">Cours</a>
+                <a href="actualites.html" class="block text-white py-2 hover:bg-gray-800 px-4 rounded">Actualités</a>
+                <a href="galerie.html" class="block text-white py-2 hover:bg-gray-800 px-4 rounded">Galerie</a>
+                <a href="contact.html" class="block text-white py-2 hover:bg-gray-800 px-4 rounded">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section for Actualités -->
+    <section class="pt-24 pb-16 md:pt-32 md:pb-24 tkd-gradient text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 fade-in">Actualités du Club</h1>
+            <p class="text-xl max-w-3xl mx-auto fade-in delay-1">Restez informé des dernières nouvelles, compétitions et événements de notre club de Taekwondo à Djibouti.</p>
+        </div>
+    </section>
+
+    <!-- Actualités Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-12">
+                <h2 class="text-3xl font-bold tkd-text-gradient">Nos Dernières Actualités</h2>
+                <div class="relative w-48">
+                    <select class="block appearance-none w-full bg-gray-100 border border-gray-300 text-gray-700 py-3 px-4 pr-8 rounded-lg leading-tight focus:outline-none focus:bg-white focus:border-red-500">
+                        <option>Toutes catégories</option>
+                        <option>Cours</option>
+                        <option>Stages</option>
+                        <option>Événements</option>
+                        <option>Championnat national</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- News 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md news-card fade-in">
+                    <div class="relative">
+                        <img src="images/Red And White Modern Karate Class Instagram Post.png" alt="Compétition nationale" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 left-4 bg-red-600 text-white text-sm font-bold px-3 py-1 rounded">Cours</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-gray-500 text-sm mb-3">
+                            <i class="far fa-calendar-alt mr-2"></i>
+                            <span>15 Juin 2023</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-800">Club taekwondo lion Djibouti </h3>
+                        <p class="text-gray-600 mb-4"> Une excellente opportunité pour les enfants et adultes de découvrir les valeurs du taekwondo : Disciplines, Respect et Confiance en soi.</p>
+                        <a href="actualite-details.html" class="text-red-600 font-semibold hover:text-red-800 transition flex items-center">
+                            Lire la suite <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- News 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md news-card fade-in delay-1">
+                    <div class="relative">
+                        <img src="images/White Black Red Modern Martial Arts Class Facebook Post.png" alt="Stage international" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 left-4 bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded">Stage</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-gray-500 text-sm mb-3">
+                            <i class="far fa-calendar-alt mr-2"></i>
+                            <span>2 Juin 2023</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-800">Le Club Taekwondo Lion de Djibouti</h3>
+                        <p class="text-gray-600 mb-4">Excellente forme physique</p>
+                        <a href="actualite-details.html" class="text-red-600 font-semibold hover:text-red-800 transition flex items-center">
+                            Lire la suite <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- News 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md news-card fade-in delay-2">
+                    <div class="relative">
+                        <img src="images/equipe adultes.jpg" alt="Nouveau dojo" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 left-4 bg-green-600 text-white text-sm font-bold px-3 py-1 rounded">Événement</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-gray-500 text-sm mb-3">
+                            <i class="far fa-calendar-alt mr-2"></i>
+                            <span>20 Mai 2023</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-800">stade el hadj hassan de nos dojo</h3>
+                        <p class="text-gray-600 mb-4">Après plusieurs mois de travaux, nous sommes fiers d'inaugurer notre nouveau dojo équipé de matériel professionnel et d'une surface de 150m².</p>
+                        <a href="actualite-details.html" class="text-red-600 font-semibold hover:text-red-800 transition flex items-center">
+                            Lire la suite <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- News 4 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md news-card fade-in">
+                    <div class="relative">
+                        <img src="images/leader enfants lion.jpg" alt="Passage de grades" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 left-4 bg-yellow-600 text-white text-sm font-bold px-3 py-1 rounded">Championnat national</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-gray-500 text-sm mb-3">
+                            <i class="far fa-calendar-alt mr-2"></i>
+                            <span>10 Mai 2023</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-800">Résultats des passages de grades</h3>
+                        <p class="text-gray-600 mb-4">Félicitations à nos 5 élèves qui ont réussi a 1 et 3 place Championnat national.</p>
+                        <a href="actualite-details.html" class="text-red-600 font-semibold hover:text-red-800 transition flex items-center">
+                            Lire la suite <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                    <!-- News 5 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md news-card fade-in delay-1">
+                        <div class="relative">
+                            <a href="https://www.youtube.com/watch?v=yem1TwOH2gM" target="_blank" rel="noopener">
+                                <img src="https://img.youtube.com/vi/yem1TwOH2gM/hqdefault.jpg" alt="Démonstration" class="w-full h-48 object-cover">
+                            </a>
+                            <div class="absolute top-4 left-4 bg-purple-600 text-white text-sm font-bold px-3 py-1 rounded">Démonstration</div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center text-gray-500 text-sm mb-3">
+                                <i class="far fa-calendar-alt mr-2"></i>
+                                <span>28 Avril 2023</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3 text-gray-800">
+                                Démonstration journée de l'indépendance à Djibouti (taekwondo)
+                            </h3>
+                            <p class="text-gray-600 mb-4">
+                                Notre club participera à la fête de l’indépendance avec une démonstration de poomsae et de kicks le 27 juin 2022.
+                            </p>
+                            <a href="actualite-details.html" class="text-red-600 font-semibold hover:text-red-800 transition flex items-center">
+                                Lire la suite <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                
+                    <!-- News 6 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md news-card fade-in delay-2">
+                        <div class="relative">
+                            <a href="https://www.youtube.com/watch?v=Ru2ifvDup-4" target="_blank" rel="noopener">
+                                <img src="https://img.youtube.com/vi/Ru2ifvDup-4/hqdefault.jpg" alt="Cours enfants" class="w-full h-48 object-cover">
+                            </a>
+                            <div class="absolute top-4 left-4 bg-pink-600 text-white text-sm font-bold px-3 py-1 rounded">Jeunesse</div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center text-gray-500 text-sm mb-3">
+                                <i class="far fa-calendar-alt mr-2"></i>
+                                <span>15 Avril 2023</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3 text-gray-800">Championnat national</h3>
+                            <p class="text-gray-600 mb-4">Championnat national de taekwondo – catégorie enfants, finale Seth vs Anas.</p>
+                            <a href="actualite-details.html" class="text-red-600 font-semibold hover:text-red-800 transition flex items-center">
+                                Lire la suite <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+            
+            <!-- Pagination -->
+            <div class="flex justify-center mt-12">
+                <nav class="flex items-center space-x-2">
+                    <a href="#" class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-100 transition">
+                        <i class="fas fa-chevron-left"></i>
+                    </a>
+                    <a href="#" class="px-4 py-2 border border-red-600 bg-red-600 text-white rounded-lg font-bold">1</a>
+                    <a href="#" class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-100 transition">2</a>
+                    <a href="#" class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-100 transition">3</a>
+                    <a href="#" class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-100 transition">
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="bg-white rounded-xl shadow-lg p-8 md:p-10">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 mb-6 md:mb-0">
+                        <h3 class="text-2xl font-bold mb-2">Restez connecté</h3>
+                        <p class="text-gray-600">Abonnez-vous à notre newsletter pour recevoir les dernières actualités directement dans votre boîte email.</p>
+                    </div>
+                    <div class="md:w-1/2 w-full">
+                        <form class="flex">
+                            <input type="email" placeholder="Votre email" class="flex-grow px-4 py-3 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-red-500">
+                            <button type="submit" class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-r-lg font-semibold transition">
+                                S'abonner
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+ <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">TAEKWONDO DJIBOUTI</h3>
+                    <p class="text-gray-400">Promouvant l'excellence martiale et les valeurs humaines depuis 2024.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Liens rapides</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#accueil" class="text-gray-400 hover:text-white transition">Accueil</a></li>
+                        <li><a href="#club" class="text-gray-400 hover:text-white transition">Le Club</a></li>
+                        <li><a href="#cours" class="text-gray-400 hover:text-white transition">Cours</a></li>
+                        <li><a href="#evenements" class="text-gray-400 hover:text-white transition">Événements</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                        <li><a href="inscr.html" class="text-gray-400 hover:text-white transition">Inscrire</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Cours</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Enfants</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Adolescents</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Adultes</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Ceintures Noires</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Cours Privés</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Newsletter</h4>
+                    <p class="text-gray-400 mb-4">Abonnez-vous pour recevoir nos actualités et offres spéciales.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Votre email" class="px-4 py-2 rounded-l-lg focus:outline-none text-gray-800 w-full">
+                        <button type="submit" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-r-lg transition">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2023 Club Taekwondo Djibouti. Tous droits réservés.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition">Mentions légales</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">Politique de confidentialité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-red-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition opacity-0 invisible hover:bg-red-700">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                if(this.getAttribute('href') === '#') return;
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if(!mobileMenu.classList.contains('hidden')) {
+                        menuToggle.classList.remove('active');
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if(window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if(elementTop < windowHeight - 100) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', fadeInOnScroll);
+        window.addEventListener('load', fadeInOnScroll);
+    </script>
+</body>
+</html>

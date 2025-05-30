@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Taekwondo Djibouti | Art martial coréen</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS for animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+        
+        /* Custom gradient for Taekwondo */
+        .tkd-gradient {
+            background: linear-gradient(135deg, #000000 0%, #003366 50%, #CC0000 100%);
+        }
+        
+        .tkd-text-gradient {
+            background: linear-gradient(135deg, #CC0000, #003366);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        /* Hamburger menu animation */
+        .hamburger span {
+            transition: all 0.3s ease;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Header/Navigation -->
+    <header class="fixed w-full z-50 tkd-gradient shadow-lg">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="images/LOGO.jpg" alt="Logo Taekwondo Djibouti" class="h-12 mr-3">
+                    <h1 class="text-white text-xl font-bold">TAEKWONDO <span class="tkd-text-gradient">DJIBOUTI</span></h1>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-white hover:text-red-400 transition">Accueil</a>
+                    <a href="#club" class="text-white hover:text-red-400 transition">Le Club</a>
+                    <a href="#cours" class="text-white hover:text-red-400 transition">Cours</a>
+                    <a href="actualise.html" class="text-gray-400 hover:text-white transition">Actualités</a>
+                    <a href="Galerie.html" class="text-gray-400 hover:text-white transition">Galerie</a>>
+                    <a href="contact.html" class="text-white hover:text-red-400 transition">Contact</a>
+                </div>
+                
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="hamburger focus:outline-none">
+                        <span class="block w-6 h-0.5 bg-white mb-1.5"></span>
+                        <span class="block w-6 h-0.5 bg-white mb-1.5"></span>
+                        <span class="block w-6 h-0.5 bg-white"></span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <a href="#accueil" class="block text-white py-2 hover:bg-gray-800 px-4 rounded">Accueil</a>
+                <a href="#club" class="block text-white py-2 hover:bg-gray-800 px-4 rounded">Le Club</a>
+                <a href="#cours" class="block text-white py-2 hover:bg-gray-800 px-4 rounded">Cours</a>
+                <a href="#evenements" class="block text-white py-2 hover:bg-gray-800 px-4 rounded">Événements</a>
+                <a href="inscr.html" class="text-gray-400 hover:text-white transition">Inscrire</a>
+                <a href="contact.html" class="block text-white py-2 hover:bg-gray-800 px-4 rounded">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="pt-24 pb-16 md:pt-32 md:pb-24 tkd-gradient text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 fade-in">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4">Découvrez l'art martial coréen à Djibouti</h2>
+                    <p class="text-lg mb-8">Rejoignez notre club de Taekwondo et développez votre discipline, votre force et votre confiance en vous.</p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="inscr.html" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg text-center transition">S'inscrire</a>
+                        <a href="#cours" class="bg-transparent hover:bg-white hover:text-black border-2 border-white text-white font-bold py-3 px-6 rounded-lg text-center transition">Voir les cours</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 fade-in delay-1">
+                    <img src="images/leader enfants lion.jpg" alt="Pratique du Taekwondo" class="rounded-lg shadow-2xl w-full">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Club Section -->
+    <section id="club" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 tkd-text-gradient fade-in">Notre Club</h2>
+            
+            <div class="flex flex-col md:flex-row items-center mb-12">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8 fade-in">
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-800">Une tradition d'excellence</h3>
+                    <p class="text-gray-600 mb-4">Fondé en 2010, le Club Taekwondo Djibouti est affilié à la Fédération Internationale de Taekwondo (WT) et compte parmi les clubs les plus réputés du pays.</p>
+                    <p class="text-gray-600 mb-4">Nos instructeurs sont certifiés et possèdent une expérience internationale dans l'enseignement de cet art martial.</p>
+                    <p class="text-gray-600">Nous accueillons des élèves de tous âges et de tous niveaux, des débutants aux ceintures noires.</p>
+                </div>
+                <div class="md:w-1/2 fade-in delay-1">
+                    <img src="images/equipe adultes.jpg" alt="Club Taekwondo Djibouti" class="rounded-lg shadow-lg w-full">
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md fade-in delay-2">
+                    <div class="text-red-600 text-4xl mb-4">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800">Compétitions</h3>
+                    <p class="text-gray-600">Nos athlètes participent régulièrement à des compétitions nationales et internationales.</p>
+                </div>
+                
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md fade-in delay-3">
+                    <div class="text-blue-600 text-4xl mb-4">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800">Communauté</h3>
+                    <p class="text-gray-600">Rejoignez une communauté dynamique passionnée par le Taekwondo et les valeurs martiales.</p>
+                </div>
+                
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md fade-in delay-4">
+                    <div class="text-black text-4xl mb-4">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800">Jeunesse</h3>
+                    <p class="text-gray-600">Programmes spécialisés pour les enfants dès 5 ans, axés sur le développement personnel.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="cours" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 tkd-text-gradient fade-in">Nos Cours</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Course 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-300 fade-in">
+                    <img src="images/enfantes entrainer.jpg" alt="Cours Enfants" class="w-full">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">Cours Enfants (5-12 ans)</h3>
+                        <p class="text-gray-600 mb-4">Initiation au Taekwondo avec une approche ludique et éducative.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-red-600 font-bold"><i class="fas fa-clock mr-2"></i>Vendredi 16h-18h</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">4 000 FD/mois</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Course 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-300 fade-in delay-1">
+                    <img src="images/adultes entrainer.jpg" alt="Cours Ados/Adultes" class="w-full">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">Cours Ados/Adultes</h3>
+                        <p class="text-gray-600 mb-4">Perfectionnement technique et préparation aux compétitions.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-red-600 font-bold"><i class="fas fa-clock mr-2"></i>Jeudi 19h-21h30</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">4 000 FD/mois</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Course 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-300 fade-in delay-2">
+                    <img src="images/icon-coach.jpg" alt="Cours Avancés" class="w-full">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">Cours Ceintures Noires</h3>
+                        <p class="text-gray-600 mb-4">Entraînement intensif pour les gradés et compétiteurs.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-red-600 font-bold"><i class="fas fa-clock mr-2"></i>Mardi/Jeudi 19h-20h30</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">Mardi 000 FD/mois</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 fade-in delay-3">
+                <a href="#inscription" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg inline-block transition">Essai gratuit</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="evenements" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 tkd-text-gradient fade-in">Événements à Venir</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Event 1 -->
+                <div class="bg-gray-100 rounded-lg overflow-hidden shadow-md flex fade-in">
+                    <div class="bg-red-600 text-white p-4 flex flex-col items-center justify-center min-w-[100px]">
+                        <span class="text-3xl font-bold">15</span>
+                        <span class="text-lg">JUIN</span>
+                        <span class="text-sm">2023</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Stage International</h3>
+                        <p class="text-gray-600 mb-2">Stage dirigé par Maître Kim, 8ème Dan de Corée du Sud.</p>
+                        <span class="text-sm text-gray-500"><i class="fas fa-map-marker-alt mr-2"></i>Stade du Ville, Djibouti</span>
+                    </div>
+                </div>
+                
+                <!-- Event 2 -->
+                <div class="bg-gray-100 rounded-lg overflow-hidden shadow-md flex fade-in delay-1">
+                    <div class="bg-blue-600 text-white p-4 flex flex-col items-center justify-center min-w-[100px]">
+                        <span class="text-3xl font-bold">22</span>
+                        <span class="text-lg">JUI</span>
+                        <span class="text-sm">2023</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Compétition Nationale</h3>
+                        <p class="text-gray-600 mb-2">Championnat de Djibouti toutes catégories.</p>
+                        <span class="text-sm text-gray-500"><i class="fas fa-map-marker-alt mr-2"></i>Palais des Sports, Djibouti</span>
+                    </div>
+                </div>
+                
+                <!-- Event 3 -->
+                <div class="bg-gray-100 rounded-lg overflow-hidden shadow-md flex fade-in delay-2">
+                    <div class="bg-black text-white p-4 flex flex-col items-center justify-center min-w-[100px]">
+                        <span class="text-3xl font-bold">10</span>
+                        <span class="text-lg">SEP</span>
+                        <span class="text-sm">2023</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Passage de Grades</h3>
+                        <p class="text-gray-600 mb-2">Session de passage de grades pour tous niveaux.</p>
+                        <span class="text-sm text-gray-500"><i class="fas fa-map-marker-alt mr-2"></i>Dojo Central, Djibouti</span>
+                    </div>
+                </div>
+                
+                <!-- Event 4 -->
+                <div class="bg-gray-100 rounded-lg overflow-hidden shadow-md flex fade-in delay-3">
+                    <div class="bg-yellow-600 text-white p-4 flex flex-col items-center justify-center min-w-[100px]">
+                        <span class="text-3xl font-bold">05</span>
+                        <span class="text-lg">NOV</span>
+                        <span class="text-sm">2023</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Démonstration Publique</h3>
+                        <p class="text-gray-600 mb-2">Présentation des techniques et démonstrations spectaculaires.</p>
+                        <span class="text-sm text-gray-500"><i class="fas fa-map-marker-alt mr-2"></i>Place du 27 Juin, Djibouti</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instructors Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 tkd-text-gradient fade-in">Nos Instructeurs</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Instructor 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg text-center fade-in">
+                    <img src="images/icon-coach.jpg" alt="Maître Ali" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-1 text-gray-800">Maître MOUSTAPHA (ALI) MOHAMED YACOUB </h3>
+                        <p class="text-red-600 font-semibold mb-3">3ème Dan | Ancien A.Directeur Technique</p>
+                        <p class="text-gray-600 mb-4"> formé en Taekwondo avec plus de 13 ans d'expérience.</p>
+                        <div class="flex justify-center space-x-4">
+                            <a href="#" class="text-blue-600 hover:text-blue-800"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="text-blue-400 hover:text-blue-600"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-red-500 hover:text-red-700"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Instructor 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg text-center fade-in delay-1">
+                    <img src="images/maitres.jpg" alt="Instructeur Fatouma" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-1 text-gray-800">MAITRES HASSAN </h3>
+                        <p class="text-red-600 font-semibold mb-3">4ème Dan | Responsable Jeunesse</p>
+                        <p class="text-gray-600 mb-4">Spécialiste des programmes enfants, médaille d'or aux Jeux de la Francophonie 2019.</p>
+                        <div class="flex justify-center space-x-4">
+                            <a href="#" class="text-blue-600 hover:text-blue-800"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="text-pink-500 hover:text-pink-700"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Instructor 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg text-center fade-in delay-2">
+                    <img src="images/MAITRES.jpg" alt="Instructeur Omar" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-1 text-gray-800">Maitres Farah </h3>
+                        <p class="text-red-600 font-semibold mb-3">3ème Dan | Coach Compétition</p>
+                        <p class="text-gray-600 mb-4">Ancien membre de l'équipe nationale, spécialiste en combat et préparation physique.</p>
+                        <div class="flex justify-center space-x-4">
+                            <a href="#" class="text-blue-600 hover:text-blue-800"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="text-blue-400 hover:text-blue-600"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 tkd-text-gradient fade-in">Témoignages</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md fade-in">
+                    <div class="flex items-center mb-4">
+                        <img src="https://via.placeholder.com/60" alt="Parent" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Amina Mohamed</h4>
+                            <p class="text-sm text-gray-600">Parent d'élève</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"Mon fils de 8 ans a gagné énormément en confiance depuis qu'il pratique au club. Les valeurs enseignées vont bien au-delà du sport."</p>
+                    <div class="mt-3 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md fade-in delay-1">
+                    <div class="flex items-center mb-4">
+                        <img src="https://via.placeholder.com/60" alt="Élève" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Ibrahim Ali</h4>
+                            <p class="text-sm text-gray-600">Ceinture noire 2ème Dan</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"Le club m'a permis de participer à des compétitions internationales. L'encadrement technique est exceptionnel."</p>
+                    <div class="mt-3 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md fade-in delay-2">
+                    <div class="flex items-center mb-4">
+                        <img src="https://via.placeholder.com/60" alt="Élève" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Khadija Omar</h4>
+                            <p class="text-sm text-gray-600">Ceinture verte</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"En tant que femme, je me sens en sécurité et respectée au club. J'ai progressé rapidement grâce aux conseils personnalisés."</p>
+                    <div class="mt-3 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 4 -->
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md fade-in delay-3">
+                    <div class="flex items-center mb-4">
+                        <img src="https://via.placeholder.com/60" alt="Parent" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Mohamed Ahmed</h4>
+                            <p class="text-sm text-gray-600">Parent d'élève</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"Mes trois enfants pratiquent au club depuis 5 ans. C'est bien plus qu'une activité sportive, c'est une école de vie."</p>
+                    <div class="mt-3 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section id="inscription" class="py-16 bg-red-600 text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center fade-in">
+                <h2 class="text-3xl font-bold mb-6">Prêt à commencer votre voyage en Taekwondo?</h2>
+                <p class="text-xl mb-8">Profitez d'une séance d'essai gratuite pour découvrir notre club et rencontrer nos instructeurs.</p>
+                <form class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <input type="text" placeholder="Votre nom" class="px-4 py-3 rounded-lg focus:outline-none text-gray-800 flex-grow max-w-md">
+                    <input type="email" placeholder="Votre email" class="px-4 py-3 rounded-lg focus:outline-none text-gray-800 flex-grow max-w-md">
+                    <button type="submit" class="bg-black hover:bg-gray-800 text-white font-bold py-3 px-6 rounded-lg transition">Essai gratuit</button>
+                </form>
+                <p class="mt-4 text-sm">Nous vous contacterons dans les 24 heures pour confirmer votre séance d'essai.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 tkd-text-gradient fade-in">Nous Contacter</h2>
+            
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="md:w-1/2 fade-in">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">Informations de contact</h3>
+                    
+                    <div class="mb-6">
+                        <div class="flex items-start mb-4">
+                            <div class="text-red-600 mr-4 mt-1">
+                                <i class="fas fa-map-marker-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Adresse</h4>
+                                <p class="text-gray-600">Stade du Ville, Rue de Marseille<br>Djibouti, Djibouti</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start mb-4">
+                            <div class="text-blue-600 mr-4 mt-1">
+                                <i class="fas fa-phone-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Téléphone</h4>
+                                <p class="text-gray-600">+253 77 75 66 38 <br>+253 77 88 71 97</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-green-600 mr-4 mt-1">
+                                <i class="fas fa-envelope text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Email</h4>
+                                <p class="text-gray-600">aliteak7749@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">Horaires d'ouverture</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex justify-between"><span>Vendredi</span> <span>15h00 - 18h30</span></li>
+                        <li class="flex justify-between"><span>Jeudi</span> <span>18h00 - 21h30</span></li>
+                        <li class="flex justify-between"><span>Mardi</span> <span>19h00 - 21h00</span></li>
+                    </ul>
+                    
+                    <div class="mt-6">
+                        <h3 class="text-xl font-semibold mb-4 text-gray-800">Suivez-nous</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white w-10 h-10 rounded-full flex items-center justify-center transition">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="bg-blue-400 hover:bg-blue-500 text-white w-10 h-10 rounded-full flex items-center justify-center transition">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="bg-red-500 hover:bg-red-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="bg-red-600 hover:bg-red-700 text-white w-10 h-10 rounded-full flex items-center justify-center transition">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2 fade-in delay-1">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">Envoyez-nous un message</h3>
+                    <form class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="name" class="block text-gray-700 mb-1">Nom complet</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-700 mb-1">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-gray-700 mb-1">Sujet</label>
+                            <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 mb-1">Message</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"></textarea>
+                        </div>
+                        <button type="submit" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition">Envoyer</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+     </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">TAEKWONDO DJIBOUTI</h3>
+                    <p class="text-gray-400">Promouvant l'excellence martiale et les valeurs humaines depuis 2024.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Liens rapides</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#accueil" class="text-gray-400 hover:text-white transition">Accueil</a></li>
+                        <li><a href="#club" class="text-gray-400 hover:text-white transition">Le Club</a></li>
+                        <li><a href="#cours" class="text-gray-400 hover:text-white transition">Cours</a></li>
+                        <li><a href="#evenements" class="text-gray-400 hover:text-white transition">Événements</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                        <li><a href="inscr.html" class="text-gray-400 hover:text-white transition">Inscrire</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Cours</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Enfants</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Adolescents</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Adultes</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Ceintures Noires</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Cours Privés</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Newsletter</h4>
+                    <p class="text-gray-400 mb-4">Abonnez-vous pour recevoir nos actualités et offres spéciales.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Votre email" class="px-4 py-2 rounded-l-lg focus:outline-none text-gray-800 w-full">
+                        <button type="submit" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-r-lg transition">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2023 Club Taekwondo Djibouti. Tous droits réservés.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition">Mentions légales</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">Politique de confidentialité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-red-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition opacity-0 invisible hover:bg-red-700">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                if(this.getAttribute('href') === '#') return;
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if(!mobileMenu.classList.contains('hidden')) {
+                        menuToggle.classList.remove('active');
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if(window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if(elementTop < windowHeight - 100) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', fadeInOnScroll);
+        window.addEventListener('load', fadeInOnScroll);
+    </script>
+</body>
+</html>
