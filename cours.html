@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cours de Taekwondo | Club Taekwondo Djibouti</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS for animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+        
+        /* Custom gradient for Taekwondo */
+        .tkd-gradient {
+            background: linear-gradient(135deg, #000000 0%, #003366 50%, #CC0000 100%);
+        }
+        
+        .tkd-text-gradient {
+            background: linear-gradient(135deg, #CC0000, #003366);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        /* Course card hover effect */
+        .course-card {
+            transition: all 0.3s ease;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Belt colors */
+        .belt-white { background-color: #ffffff; color: #333; }
+        .belt-yellow { background-color: #ffff00; color: #333; }
+        .belt-green { background-color: #008000; color: white; }
+        .belt-blue { background-color: #0000ff; color: white; }
+        .belt-red { background-color: #ff0000; color: white; }
+        .belt-black { background-color: #000000; color: white; }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Header/Navigation -->
+    <header class="fixed w-full z-50 tkd-gradient shadow-lg">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="images/LOGO.jpg" alt="Logo Taekwondo Djibouti" class="h-12 mr-3">
+                    <h1 class="text-white text-xl font-bold">TAEKWONDO <span class="tkd-text-gradient">DJIBOUTI</span></h1>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-white hover:text-red-400 transition">Accueil</a>
+                    <a href="cours.html" class="text-white hover:text-red-400 transition">Cours</a>
+                    <a href="actualise.html" class="text-gray-400 hover:text-white transition">Actualités</a>
+                    <a href="Galerie.html" class="text-gray-400 hover:text-white transition">Galerie</a>
+                    <a href="contact.html" class="text-white hover:text-red-400 transition">Contact</a>
+                </div>
+                
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="hamburger focus:outline-none">
+                        <span class="block w-6 h-0.5 bg-white mb-1.5"></span>
+                        <span class="block w-6 h-0.5 bg-white mb-1.5"></span>
+                        <span class="block w-6 h-0.5 bg-white"></span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <a href="index.html" class="block text-white py-2 hover:bg-gray-800 px-4 rounded">Accueil</a>
+                <a href="cours.html" class="block text-white py-2 hover:bg-gray-800 px-4 rounded">Cours</a>
+                <a href="#evenements" class="block text-white py-2 hover:bg-gray-800 px-4 rounded">Événements</a>
+                <a href="inscr.html" class="block text-white py-2 hover:bg-gray-800 px-4 rounded">Inscrire</a>
+                <a href="contact.html" class="block text-white py-2 hover:bg-gray-800 px-4 rounded">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-16 md:pt-40 md:pb-24 tkd-gradient text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 fade-in">Nos Cours de Taekwondo</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto fade-in delay-1">Découvrez nos programmes adaptés à tous les âges et tous les niveaux, des débutants aux ceintures noires.</p>
+            <a href="inscr.html" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg inline-block transition fade-in delay-2">S'inscrire maintenant</a>
+        </div>
+    </section>
+
+    <!-- Cours pour Enfants -->
+    <section id="enfants" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-3xl font-bold tkd-text-gradient">Cours pour Enfants</h2>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Développement physique et mental pour les 5-12 ans</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-12">
+                <div class="fade-in">
+                    <img src="images/enfants-entrainement.jpg" alt="Enfants pratiquant le Taekwondo" class="rounded-lg shadow-xl w-full">
+                </div>
+                <div class="fade-in delay-1">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Apprendre en s'amusant</h3>
+                    <p class="text-gray-600 mb-4">Nos cours pour enfants sont spécialement conçus pour développer la coordination, la confiance en soi et la discipline tout en s'amusant.</p>
+                    <ul class="text-gray-600 space-y-2 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span>Développement psychomoteur</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span>Apprentissage des valeurs martiales</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span>Exercices ludiques et éducatifs</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span>Préparation aux premiers grades</span>
+                        </li>
+                    </ul>
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-blue-800 mb-2">Horaires des cours enfants :</h4>
+                        <p class="text-gray-700">
+                            <i class="fas fa-calendar-alt mr-2 text-blue-600"></i> Lundi et Mercredi : 16h-17h30<br>
+                            <i class="fas fa-calendar-alt mr-2 text-blue-600"></i> Samedi : 9h-10h30
+                        </p>
+                        <p class="mt-2 text-gray-700">
+                            <i class="fas fa-money-bill-wave mr-2 text-blue-600"></i> Tarif : 5,000 FD/mois
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 fade-in delay-2">
+                <div class="bg-gray-50 p-6 rounded-lg course-card">
+                    <div class="text-blue-600 text-3xl mb-4">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Débutants (5-7 ans)</h3>
+                    <p class="text-gray-600 mb-4">Initiation aux bases du Taekwondo avec une approche ludique et éducative.</p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <i class="fas fa-users mr-2"></i> 12 élèves max par cours
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg course-card">
+                    <div class="text-yellow-500 text-3xl mb-4">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Intermédiaires (8-10 ans)</h3>
+                    <p class="text-gray-600 mb-4">Perfectionnement des techniques de base et préparation aux premières compétitions.</p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <i class="fas fa-users mr-2"></i> 15 élèves max par cours
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg course-card">
+                    <div class="text-red-600 text-3xl mb-4">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Avancés (11-12 ans)</h3>
+                    <p class="text-gray-600 mb-4">Approfondissement des techniques et préparation aux passages de grade.</p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <i class="fas fa-users mr-2"></i> 15 élèves max par cours
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cours pour Ados/Adultes -->
+    <section id="ados-adultes" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-3xl font-bold tkd-text-gradient">Cours pour Adolescents & Adultes</h2>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Pour tous les niveaux, de débutant à confirmé</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-12">
+                <div class="order-1 md:order-2 fade-in">
+                    <img src="images/adultes-entrainement.jpg" alt="Adolescents et adultes pratiquant le Taekwondo" class="rounded-lg shadow-xl w-full">
+                </div>
+                <div class="order-2 md:order-1 fade-in delay-1">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Développez votre potentiel</h3>
+                    <p class="text-gray-600 mb-4">Nos cours pour ados et adultes vous permettent de progresser à votre rythme, que vous soyez débutant ou pratiquant confirmé.</p>
+                    <ul class="text-gray-600 space-y-2 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span>Apprentissage des techniques traditionnelles</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span>Préparation physique spécifique</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span>Self-défense et combat</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span>Préparation aux compétitions</span>
+                        </li>
+                    </ul>
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-blue-800 mb-2">Horaires des cours ados/adultes :</h4>
+                        <p class="text-gray-700">
+                            <i class="fas fa-calendar-alt mr-2 text-blue-600"></i> Mardi et Jeudi : 18h-20h<br>
+                            <i class="fas fa-calendar-alt mr-2 text-blue-600"></i> Vendredi : 17h-19h
+                        </p>
+                        <p class="mt-2 text-gray-700">
+                            <i class="fas fa-money-bill-wave mr-2 text-blue-600"></i> Tarif : 6,000 FD/mois
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 fade-in delay-2">
+                <div class="bg-white p-6 rounded-lg shadow-md course-card">
+                    <div class="belt-white text-center py-2 px-4 rounded-full mb-4 font-bold">Débutant</div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Niveau 1</h3>
+                    <p class="text-gray-600 mb-4">Apprentissage des bases : positions, coups de pied et blocages fondamentaux.</p>
+                    <div class="text-sm text-gray-500">
+                        <i class="fas fa-bell mr-2"></i> Préparation aux ceintures blanches-jaunes
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md course-card">
+                    <div class="belt-green text-center py-2 px-4 rounded-full mb-4 font-bold">Intermédiaire</div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Niveau 2</h3>
+                    <p class="text-gray-600 mb-4">Perfectionnement technique et initiation aux combats.</p>
+                    <div class="text-sm text-gray-500">
+                        <i class="fas fa-bell mr-2"></i> Pour ceintures vertes à bleues
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md course-card">
+                    <div class="belt-red text-center py-2 px-4 rounded-full mb-4 font-bold">Avancé</div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Niveau 3</h3>
+                    <p class="text-gray-600 mb-4">Techniques avancées, préparation aux compétitions et passages de grade.</p>
+                    <div class="text-sm text-gray-500">
+                        <i class="fas fa-bell mr-2"></i> Pour ceintures rouges et noires
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cours Spéciaux -->
+    <section id="cours-speciaux" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-3xl font-bold tkd-text-gradient">Cours Spéciaux</h2>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Programmes spécifiques pour des besoins particuliers</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 fade-in delay-1">
+                <div class="bg-gray-100 p-8 rounded-xl course-card">
+                    <div class="text-purple-600 text-4xl mb-4">
+                        <i class="fas fa-fist-raised"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-gray-800">Self-défense</h3>
+                    <p class="text-gray-600 mb-4">Techniques pratiques de self-défense adaptées à des situations réelles.</p>
+                    <div class="space-y-2">
+                        <div class="flex items-center text-gray-700">
+                            <i class="fas fa-calendar-day mr-2"></i> Vendredi : 19h-20h30
+                        </div>
+                        <div class="flex items-center text-gray-700">
+                            <i class="fas fa-user-shield mr-2"></i> À partir de 16 ans
+                        </div>
+                        <div class="flex items-center text-gray-700">
+                            <i class="fas fa-money-bill-wave mr-2"></i> 7,000 FD/mois
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-100 p-8 rounded-xl course-card">
+                    <div class="text-yellow-600 text-4xl mb-4">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-gray-800">Compétition</h3>
+                    <p class="text-gray-600 mb-4">Entraînement intensif pour les compétiteurs et futurs champions.</p>
+                    <div class="space-y-2">
+                        <div class="flex items-center text-gray-700">
+                            <i class="fas fa-calendar-day mr-2"></i> Samedi : 11h-13h
+                        </div>
+                        <div class="flex items-center text-gray-700">
+                            <i class="fas fa-trophy mr-2"></i> Ceinture verte minimum
+                        </div>
+                        <div class="flex items-center text-gray-700">
+                            <i class="fas fa-money-bill-wave mr-2"></i> 8,000 FD/mois
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-100 p-8 rounded-xl course-card">
+                    <div class="text-blue-600 text-4xl mb-4">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-gray-800">Cours Privés</h3>
+                    <p class="text-gray-600 mb-4">Entraînement personnalisé avec un instructeur dédié.</p>
+                    <div class="space-y-2">
+                        <div class="flex items-center text-gray-700">
+                            <i class="fas fa-calendar-day mr-2"></i> Sur rendez-vous
+                        </div>
+                        <div class="flex items-center text-gray-700">
+                            <i class="fas fa-user-graduate mr-2"></i> Tous niveaux
+                        </div>
+                        <div class="flex items-center text-gray-700">
+                            <i class="fas fa-money-bill-wave mr-2"></i> 10,000 FD/séance
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programme des Ceintures -->
+    <section id="ceintures" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-3xl font-bold tkd-text-gradient">Programme des Ceintures</h2>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Découvrez le parcours d'évolution dans notre club</p>
+            </div>
+            
+            <div class="overflow-x-auto fade-in delay-1">
+                <table class="min-w-full bg-white rounded-lg overflow-hidden">
+                    <thead class="bg-gray-800 text-white">
+                        <tr>
+                            <th class="py-3 px-4 text-left">Ceinture</th>
+                            <th class="py-3 px-4 text-left">Niveau</th>
+                            <th class="py-3 px-4 text-left">Compétences acquises</th>
+                            <th class="py-3 px-4 text-left">Durée moyenne</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr>
+                            <td class="py-3 px-4 belt-white">Blanche</td>
+                            <td class="py-3 px-4">Débutant</td>
+                            <td class="py-3 px-4">Bases du Taekwondo, positions fondamentales</td>
+                            <td class="py-3 px-4">3 mois</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 px-4 belt-yellow">Jaune</td>
+                            <td class="py-3 px-4">Débutant avancé</td>
+                            <td class="py-3 px-4">Premiers coups de pied, blocages simples</td>
+                            <td class="py-3 px-4">4 mois</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 px-4 belt-green">Verte</td>
+                            <td class="py-3 px-4">Intermédiaire</td>
+                            <td class="py-3 px-4">Combinaisons techniques, premiers combats</td>
+                            <td class="py-3 px-4">5 mois</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 px-4 belt-blue">Bleue</td>
+                            <td class="py-3 px-4">Intermédiaire avancé</td>
+                            <td class="py-3 px-4">Techniques aériennes, self-défense</td>
+                            <td class="py-3 px-4">6 mois</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 px-4 belt-red">Rouge</td>
+                            <td class="py-3 px-4">Avancé</td>
+                            <td class="py-3 px-4">Maîtrise technique, préparation à la ceinture noire</td>
+                            <td class="py-3 px-4">8 mois</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 px-4 belt-black">Noire</td>
+                            <td class="py-3 px-4">Expert</td>
+                            <td class="py-3 px-4">Maîtrise complète, enseignement</td>
+                            <td class="py-3 px-4">1+ an par dan</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="mt-12 text-center fade-in delay-2">
+                <a href="inscr.html" class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg transition transform hover:scale-105">
+                    <i class="fas fa-user-plus mr-2"></i> S'inscrire à un cours
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">TAEKWONDO DJIBOUTI</h3>
+                    <p class="text-gray-400">Promouvant l'excellence martiale et les valeurs humaines depuis 2010.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Liens rapides</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Accueil</a></li>
+                        <li><a href="#club" class="text-gray-400 hover:text-white transition">Le Club</a></li>
+                        <li><a href="cours.html" class="text-gray-400 hover:text-white transition">Cours</a></li>
+                        <li><a href="#evenements" class="text-gray-400 hover:text-white transition">Événements</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Cours</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#enfants" class="text-gray-400 hover:text-white transition">Enfants</a></li>
+                        <li><a href="#ados-adultes" class="text-gray-400 hover:text-white transition">Ados/Adultes</a></li>
+                        <li><a href="#cours-speciaux" class="text-gray-400 hover:text-white transition">Cours Spéciaux</a></li>
+                        <li><a href="#ceintures" class="text-gray-400 hover:text-white transition">Programme des Ceintures</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Contact</h4>
+                    <address class="text-gray-400 not-italic">
+                        <p class="mb-2"><i class="fas fa-map-marker-alt mr-2"></i> Complexe Sportif National, Djibouti</p>
+                        <p class="mb-2"><i class="fas fa-phone-alt mr-2"></i> +253 77 75 66 38</p>
+                        <p class="mb-2"><i class="fas fa-envelope mr-2"></i> aliteak7749@gmail.com</p>
+                    </address>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2025 Club Taekwondo Djibouti. Tous droits réservés.Tous droits réservés. developpeur par entreprise geosom </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition">Mentions légales</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">Politique de confidentialité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-red-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition opacity-0 invisible hover:bg-red-700">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                if(this.getAttribute('href') === '#') return;
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if(!mobileMenu.classList.contains('hidden')) {
+                        menuToggle.classList.remove('active');
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if(window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if(elementTop < windowHeight - 100) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', fadeInOnScroll);
+        window.addEventListener('load', fadeInOnScroll);
+    </script>
+</body>
+</html>

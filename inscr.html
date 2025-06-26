@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Club Taekwondo Lion - Djibouti - Inscription 2025/2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
@@ -39,10 +39,26 @@
 
             body {
                 font-size: 12px;
+                background-color: white;
+                color: black;
             }
 
             .page-break {
                 page-break-after: always;
+            }
+            
+            .pdf-only {
+                display: block;
+            }
+            
+            .no-pdf {
+                display: none;
+            }
+        }
+
+        @media screen {
+            .pdf-only {
+                display: none;
             }
         }
 
@@ -86,20 +102,61 @@
         .hamburger.active span:nth-child(3) {
             transform: rotate(-45deg) translate(7px, -6px);
         }
+        
+        /* Style spécifique pour le PDF */
+        .pdf-header {
+            background-color: #f8f8f8;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e53e3e;
+        }
+        
+        .pdf-section-title {
+            background-color: #e53e3e;
+            color: white;
+            padding: 8px 12px;
+            margin: 15px 0 10px 0;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        
+        .pdf-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+        
+        .pdf-table th {
+            background-color: #e53e3e;
+            color: white;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        .pdf-table td {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .pdf-signature-area {
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px dashed #000;
+        }
     </style>
 </head>
 <body class="font-sans bg-gray-50">
-    <!-- Correction de la navigation -->
+    <!-- Navigation -->
     <header class="fixed w-full z-50 tkd-gradient shadow-lg">
         <div class="container mx-auto px-4 py-3">
             <div class="flex justify-between items-center">
                 <div class="flex items-center">
                     <img src="images/LOGO.jpg" alt="Logo Taekwondo Djibouti" class="h-12 mr-3">
-                    <h1 class="text-white text-xl font-bold">TAEKWONDO LION <span class="tkd-text-gradient">DJIBOUTI</span></h1>
+                    <h1 class="text-white text-xl font-bold">TAEKWONDO LION <span class="tkd-text-gradient">DJIBOUTI</span></h1>
                 </div>
                 <div class="hidden md:flex space-x-8">
                     <a href="index.html" class="text-white hover:text-red-400 transition">Accueil</a>
-                    <a href="#club" class="text-white hover:text-red-400 transition">Le Club</a>
                     <a href="#cours" class="text-white hover:text-red-400 transition">Cours</a>
                     <a href="actualise.html" class="text-gray-400 hover:text-white transition">Actualités</a>
                     <a href="galerie.html" class="text-gray-400 hover:text-white transition">Galerie</a>
@@ -115,8 +172,7 @@
             </div>
         </div>
     </header>
-</br></br> </br>
-<body class="bg-gray-100">
+    
     <div class="container mx-auto px-4 py-8 max-w-5xl" id="form-to-print">
         <!-- Header -->
         <div class="bg-white rounded-lg shadow-md p-6 mb-6">
@@ -139,17 +195,17 @@
         </div>
         
         <!-- Form Sections -->
-        <form class="bg-white rounded-lg shadow-md p-6 mb-6">
+        <form id="inscription-form" class="bg-white rounded-lg shadow-md p-6 mb-6">
             <!-- Personal Information -->
             <div class="form-section mb-8">
                 <div class="flex items-center mb-4">
                     <span class="mr-4 font-semibold">Civilité:</span>
                     <div class="checkbox-container flex items-center mr-6">
-                        <input type="checkbox" id="madame" class="mr-2">
+                        <input type="checkbox" id="madame" name="civilite" value="Madame" class="mr-2">
                         <label for="madame">Madame</label>
                     </div>
                     <div class="checkbox-container flex items-center">
-                        <input type="checkbox" id="monsieur" class="mr-2">
+                        <input type="checkbox" id="monsieur" name="civilite" value="Monsieur" class="mr-2">
                         <label for="monsieur">Monsieur</label>
                     </div>
                 </div>
@@ -157,31 +213,31 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>
                         <label for="nom" class="block font-medium mb-1">Nom :</label>
-                        <input type="text" id="nom" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                        <input type="text" id="nom" name="nom" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
                     </div>
                     <div>
                         <label for="prenom" class="block font-medium mb-1">Prénom :</label>
-                        <input type="text" id="prenom" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                        <input type="text" id="prenom" name="prenom" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
                     </div>
                     <div>
                         <label for="date_naissance" class="block font-medium mb-1">Date de naissance :</label>
-                        <input type="date" id="date_naissance" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                        <input type="date" id="date_naissance" name="date_naissance" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
                     </div>
                     <div>
                         <label for="nationalite" class="block font-medium mb-1">Nationalité :</label>
-                        <input type="text" id="nationalite" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                        <input type="text" id="nationalite" name="nationalite" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
                     </div>
                     <div>
                         <label for="adresse" class="block font-medium mb-1">Adresse :</label>
-                        <input type="text" id="adresse" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                        <input type="text" id="adresse" name="adresse" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
                     </div>
                     <div>
                         <label for="telephone" class="block font-medium mb-1">Téléphone :</label>
-                        <input type="tel" id="telephone" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                        <input type="tel" id="telephone" name="telephone" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
                     </div>
                     <div>
                         <label for="email" class="block font-medium mb-1">E-mail :</label>
-                        <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                        <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
                     </div>
                 </div>
                 
@@ -189,8 +245,13 @@
                     <h3 class="font-bold mb-2">Représentant légal (pour mineurs, +18 ans) :</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                        <label for="representant_nom" class="block font-medium mb-1">Nom/Prénom :</label>
-                        <input type="text" id="representant_nom" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                            <label for="representant_nom" class="block font-medium mb-1">Nom/Prénom :</label>
+                            <input type="text" id="representant_nom" name="representant_nom" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                        </div>
+                        <div>
+                            <label for="representant_telephone" class="block font-medium mb-1">Téléphone :</label>
+                            <input type="tel" id="representant_telephone" name="representant_telephone" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -216,19 +277,19 @@
                                 <td class="py-2 px-4 border">Enfants (4 - 12 ans)</td>
                                 <td class="py-2 px-4 border">
                                     <div class="checkbox-container flex items-center justify-center">
-                                        <input type="checkbox" id="enfant_mensuel" class="mr-2">
+                                        <input type="checkbox" id="enfant_mensuel" name="tarif" value="Enfant Mensuel 4000" class="mr-2">
                                         <label for="enfant_mensuel">4 000</label>
                                     </div>
                                 </td>
                                 <td class="py-2 px-4 border">
                                     <div class="checkbox-container flex items-center justify-center">
-                                        <input type="checkbox" id="enfant_6mois" class="mr-2">
+                                        <input type="checkbox" id="enfant_6mois" name="tarif" value="Enfant 6 mois 22000" class="mr-2">
                                         <label for="enfant_6mois">22 000</label>
                                     </div>
                                 </td>
                                 <td class="py-2 px-4 border">
                                     <div class="checkbox-container flex items-center justify-center">
-                                        <input type="checkbox" id="enfant_12mois" class="mr-2">
+                                        <input type="checkbox" id="enfant_12mois" name="tarif" value="Enfant 12 mois 40000" class="mr-2">
                                         <label for="enfant_12mois">40 000</label>
                                     </div>
                                 </td>
@@ -237,19 +298,19 @@
                                 <td class="py-2 px-4 border">Jeunes (13 - 18 ans)</td>
                                 <td class="py-2 px-4 border">
                                     <div class="checkbox-container flex items-center justify-center">
-                                        <input type="checkbox" id="jeune_mensuel" class="mr-2">
+                                        <input type="checkbox" id="jeune_mensuel" name="tarif" value="Jeune Mensuel 4000" class="mr-2">
                                         <label for="jeune_mensuel">4 000</label>
                                     </div>
                                 </td>
                                 <td class="py-2 px-4 border">
                                     <div class="checkbox-container flex items-center justify-center">
-                                        <input type="checkbox" id="jeune_6mois" class="mr-2">
+                                        <input type="checkbox" id="jeune_6mois" name="tarif" value="Jeune 6 mois 22000" class="mr-2">
                                         <label for="jeune_6mois">22 000</label>
                                     </div>
                                 </td>
                                 <td class="py-2 px-4 border">
                                     <div class="checkbox-container flex items-center justify-center">
-                                        <input type="checkbox" id="jeune_12mois" class="mr-2">
+                                        <input type="checkbox" id="jeune_12mois" name="tarif" value="Jeune 12 mois 45000" class="mr-2">
                                         <label for="jeune_12mois">45 000</label>
                                     </div>
                                 </td>
@@ -258,19 +319,19 @@
                                 <td class="py-2 px-4 border">Ados/Adultes (+18)</td>
                                 <td class="py-2 px-4 border">
                                     <div class="checkbox-container flex items-center justify-center">
-                                        <input type="checkbox" id="adulte_mensuel" class="mr-2">
+                                        <input type="checkbox" id="adulte_mensuel" name="tarif" value="Adulte Mensuel 4000" class="mr-2">
                                         <label for="adulte_mensuel">4 000</label>
                                     </div>
                                 </td>
                                 <td class="py-2 px-4 border">
                                     <div class="checkbox-container flex items-center justify-center">
-                                        <input type="checkbox" id="adulte_6mois" class="mr-2">
+                                        <input type="checkbox" id="adulte_6mois" name="tarif" value="Adulte 6 mois 23000" class="mr-2">
                                         <label for="adulte_6mois">23 000</label>
                                     </div>
                                 </td>
                                 <td class="py-2 px-4 border">
                                     <div class="checkbox-container flex items-center justify-center">
-                                        <input type="checkbox" id="adulte_12mois" class="mr-2">
+                                        <input type="checkbox" id="adulte_12mois" name="tarif" value="Adulte 12 mois 45000" class="mr-2">
                                         <label for="adulte_12mois">45 000</label>
                                     </div>
                                 </td>
@@ -396,26 +457,26 @@
                 
                 <div class="mb-4">
                     <label for="probleme_sante" class="block font-medium mb-1">Problème de santé à signaler (si aucun, écrire "Néant") :</label>
-                    <textarea id="probleme_sante" rows="2" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"></textarea>
+                    <textarea id="probleme_sante" name="probleme_sante" rows="2" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"></textarea>
                 </div>
                 
                 <h3 class="font-bold mb-2">Personne à prévenir en cas d'accident :</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
                     <div>
                         <label for="urgence_nom" class="block font-medium mb-1">Nom :</label>
-                        <input type="text" id="urgence_nom" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                        <input type="text" id="urgence_nom" name="urgence_nom" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
                     </div>
                     <div>
                         <label for="urgence_prenom" class="block font-medium mb-1">Prénom :</label>
-                        <input type="text" id="urgence_prenom" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                        <input type="text" id="urgence_prenom" name="urgence_prenom" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
                     </div>
                     <div>
                         <label for="urgence_telephone" class="block font-medium mb-1">Téléphone fixe :</label>
-                        <input type="tel" id="urgence_telephone" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                        <input type="tel" id="urgence_telephone" name="urgence_telephone" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
                     </div>
                     <div>
                         <label for="urgence_mobile" class="block font-medium mb-1">Mobile :</label>
-                        <input type="tel" id="urgence_mobile" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                        <input type="tel" id="urgence_mobile" name="urgence_mobile" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
                     </div>
                 </div>
             </div>
@@ -434,14 +495,14 @@
                 
                 <div class="mb-6">
                     <div class="checkbox-container flex items-start">
-                        <input type="checkbox" id="droit_image" class="mt-1 mr-2">
+                        <input type="checkbox" id="droit_image" name="droit_image" class="mt-1 mr-2">
                         <label for="droit_image">Droit à l'image : J'autorise la diffusion de photos/vidéos liées à la pratique (supports officiels du club/fédération).</label>
                     </div>
                 </div>
                 
                 <div class="mb-6">
                     <div class="checkbox-container flex items-start">
-                        <input type="checkbox" id="engagement" class="mt-1 mr-2">
+                        <input type="checkbox" id="engagement" name="engagement" class="mt-1 mr-2">
                         <label for="engagement">Engagement : Je m'engage à respecter le règlement intérieur et le code d'honneur.</label>
                     </div>
                 </div>
@@ -550,17 +611,60 @@
         <button id="download-pdf" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-md flex items-center">
             <i class="fas fa-file-pdf mr-2"></i> Télécharger PDF
         </button>
-        <button id="submit-form" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-md flex items-center">
+        <button id="submit-form" type="button" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-md flex items-center">
             <i class="fas fa-paper-plane mr-2"></i> Soumettre
         </button>
     </div>
     
     <script>
-        // Simple form validation
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
+        // Fonction pour générer le PDF
+        async function generatePDF() {
+            const element = document.getElementById('form-to-print');
+            const opt = {
+                margin: 10,
+                filename: 'Inscription_Taekwondo_Lion_Djibouti.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { 
+                    scale: 2,
+                    logging: true,
+                    useCORS: true,
+                    allowTaint: true
+                },
+                jsPDF: { 
+                    unit: 'mm', 
+                    format: 'a4', 
+                    orientation: 'portrait',
+                    hotfixes: ["px_scaling"]
+                },
+                pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+            };
             
-            // Check required fields
+            // Afficher l'indicateur de chargement
+            const button = document.getElementById('submit-form');
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Génération PDF...';
+            button.disabled = true;
+            
+            try {
+                // Générer le PDF
+                const pdf = await html2pdf().set(opt).from(element).toPdf().get('pdf');
+                
+                // Restaurer le bouton
+                button.innerHTML = originalText;
+                button.disabled = false;
+                
+                return pdf;
+            } catch (error) {
+                console.error("Erreur lors de la génération du PDF:", error);
+                button.innerHTML = originalText;
+                button.disabled = false;
+                throw error;
+            }
+        }
+        
+        // Fonction pour envoyer le formulaire
+        async function submitForm() {
+            // Valider le formulaire
             const requiredFields = ['nom', 'prenom', 'date_naissance', 'adresse', 'telephone'];
             let isValid = true;
             
@@ -574,26 +678,49 @@
                 }
             });
             
-            // Check at least one payment option is selected
-            const paymentSelected = document.querySelector('input[type="checkbox"]:checked');
+            // Vérifier qu'au moins une option de paiement est sélectionnée
+            const paymentSelected = document.querySelector('input[name="tarif"]:checked');
             if (!paymentSelected) {
                 alert('Veuillez sélectionner au moins une option de paiement.');
                 isValid = false;
             }
             
-            // Check authorization checkboxes
+            // Vérifier les cases d'autorisation
             if (!document.getElementById('droit_image').checked || !document.getElementById('engagement').checked) {
                 alert('Veuillez accepter toutes les autorisations.');
                 isValid = false;
             }
             
-            if (isValid) {
-                alert('Formulaire soumis avec succès!');
-                // In a real application, you would submit the form data to a server here
+            if (!isValid) {
+                return;
             }
-        });
+            
+            try {
+                // Générer le PDF
+                const pdf = await generatePDF();
+                
+                // Ici, vous pouvez envoyer le PDF par email ou le télécharger
+                // Pour cet exemple, nous allons simplement le télécharger
+                pdf.save('Inscription_Taekwondo_Lion_Djibouti.pdf');
+                
+                // Envoyer les données du formulaire à un serveur (à implémenter)
+                // const formData = new FormData(document.getElementById('inscription-form'));
+                // await fetch('votre-endpoint', { method: 'POST', body: formData });
+                
+                alert('Formulaire soumis avec succès! Un PDF a été généré.');
+            } catch (error) {
+                console.error("Erreur lors de la soumission:", error);
+                alert("Une erreur est survenue lors de la génération du PDF. Veuillez réessayer.");
+            }
+        }
         
-        // Reset red borders when user starts typing
+        // Écouteur d'événement pour le bouton de soumission
+        document.getElementById('submit-form').addEventListener('click', submitForm);
+        
+        // Écouteur d'événement pour le bouton de téléchargement PDF
+        document.getElementById('download-pdf').addEventListener('click', generatePDF);
+        
+        // Réinitialiser les bordures rouges lorsque l'utilisateur commence à taper
         document.querySelectorAll('input, textarea').forEach(input => {
             input.addEventListener('input', function() {
                 if (this.classList.contains('border-red-500')) {
@@ -602,34 +729,26 @@
             });
         });
         
-        // PDF Download functionality
-        document.getElementById('download-pdf').addEventListener('click', function() {
-            const element = document.getElementById('form-to-print');
-            const opt = {
-                margin: 10,
-                filename: 'Inscription_Taekwondo_Lion_Djibouti.pdf',
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2 },
-                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-            };
-            
-            // Show loading indicator
-            const button = this;
-            const originalText = button.innerHTML;
-            button.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Création PDF...';
-            button.disabled = true;
-            
-            // Generate PDF
-            html2pdf().from(element).set(opt).save().then(() => {
-                // Restore button
-                button.innerHTML = originalText;
-                button.disabled = false;
+        // Empêcher la sélection multiple des cases de civilité
+        document.querySelectorAll('input[name="civilite"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                if (this.checked) {
+                    document.querySelectorAll('input[name="civilite"]').forEach(cb => {
+                        if (cb !== this) cb.checked = false;
+                    });
+                }
             });
         });
         
-        // Submit button event listener
-        document.getElementById('submit-form').addEventListener('click', function() {
-            document.querySelector('form').dispatchEvent(new Event('submit'));
+        // Empêcher la sélection multiple des options de tarif
+        document.querySelectorAll('input[name="tarif"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                if (this.checked) {
+                    document.querySelectorAll('input[name="tarif"]').forEach(cb => {
+                        if (cb !== this) cb.checked = false;
+                    });
+                }
+            });
         });
     </script>
 </body>
